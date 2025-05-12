@@ -4,13 +4,11 @@
 
 #include "ball.hpp"
 
-
-class Simulation
-{   
+class Simulation {
     public:
         Simulation(int window_width, int window_height, int ball_count);
 
-    void run();
+        void run();
 
     private:
         sf::RenderWindow window;

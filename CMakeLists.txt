@@ -9,6 +9,28 @@ elseif (UNIX)
     set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 endif()
 
+find_program(CLANG_FORMAT_EXE NAMES clang-format)
+
+if (CLANG_FORMAT_EXE)
+    # Liste des fichiers à formater (ajuste selon ton projet)
+    file(GLOB_RECURSE ALL_SOURCE_FILES 
+        "${CMAKE_SOURCE_DIR}/src/*.cpp"
+        "${CMAKE_SOURCE_DIR}/include/*.hpp"
+    )
+
+    add_custom_target(
+        format
+        COMMAND ${CLANG_FORMAT_EXE}
+        -i
+        -style=file
+        ${ALL_SOURCE_FILES}
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        COMMENT "Running clang-format on source files"
+    )
+else()
+    message(WARNING "clang-format not found!")
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 

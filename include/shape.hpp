@@ -1,11 +1,9 @@
-#pragma once 
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
-
-class Shape{
+class Shape {
     public:
         virtual ~Shape() = default;
-        virtual void draw(sf::RenderWindow& window) = 0;
-
+        virtual void draw(sf::RenderWindow &window) = 0;
 };
