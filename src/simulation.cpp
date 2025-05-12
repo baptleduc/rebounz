@@ -31,7 +31,7 @@ Simulation::Simulation(int window_width, int window_height, int ball_count)
     sf::Vector2f init_pos(window_width / 2.0, window_height / 3.0);
     for (int i = 0; i < ball_count; ++i)
     {
-        Ball ball(init_pos, sf::Color::White);
+        Ball ball(init_pos, sf::Color::White, main_circle);
         balls.push_back(ball);
     }
 }
